@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify </title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+    header {
+      background-color: #1DB954;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background-color: #282828;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .card h2 {
+      color: #1DB954;
+      margin-bottom: 10px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .grid-item {
+      background-color: #282828;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .grid-item img {
+      width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+    }
+    footer {
+      background-color: #282828;
+      padding: 10px;
+      text-align: center;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+    canvas {
+      margin-top: 10px;
+      max-width: 400px;
+      max-height: 300px;
+    }
+    .highlight {
+      color: #1DB954;
+      font-weight: bold;
+    }
+    .profile-link {
+      margin-top: 10px;
+      display: block;
+      color: #1DB954;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Media Queries para Dispositivos Móveis e Diferentes Resoluções */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 22px;
+      }
+      .card h2 {
+        font-size: 18px;
+      }
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .grid-item img {
+        max-height: 180px;
+      }
+      footer p {
+        font-size: 12px;
+      }
+      canvas {
+        max-width: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 20px;
+      }
+      .card h2 {
+        font-size: 16px;
+      }
+      .grid-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .grid-item img {
+        max-height: 150px;
+      }
+      footer p {
+        font-size: 10px;
+      }
+      canvas {
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Spotify </h1>
+  </header>
+  <main class="container">
+    <!-- Top Artistas com Links para os Perfis -->
+    <section class="card">
+      <h2>Top 5 Artistas Mais Ouvidos</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <img src="1_the_weeknd458.jpg" alt="The Weeknd">
+          <p><span class="highlight">The Weeknd</span><br>120,5 milhões de ouvintes mensais</p>
+          <a href="https://open.spotify.com/intl-pt/artist/1Xyo4u8uXC1ZmMpatF05PJ?si=s8fAsyFZSNq7-AURszPAog" target="_blank" class="profile-link">Perfil do Artista</a>
+        </div>
+        <div class="grid-item">
+          <img src="billie-eilish-certa.webp" alt="Billie Eilish">
+          <p><span class="highlight">Billie Eilish</span><br> 105,2 milhões de ouvintes mensais</p>
+          <a href="https://open.spotify.com/intl-pt/artist/6qqNVTkY8uBg9cP3Jd7DAH?si=ZwG7LOT4R0iaYv-TuwPJlQ" target="_blank" class="profile-link">Perfil do Artista</a>
+        </div>
+        <div class="grid-item">
+          <img src="tylor certa.jpg" alt="Taylor Swift">
+          <p><span class="highlight">Taylor Swift</span><br>90,1 milhões de ouvintes mensais</p>
+          <a href="https://open.spotify.com/intl-pt/artist/06HL4z0CvFAxyc27GXpf02?si=1SRF5KBBTbK5hcuoGdbRRA" target="_blank" class="profile-link">Perfil do Artista</a>
+        </div>
+        <div class="grid-item">
+          <img src="drake.png" alt="Drake">
+          <p><span class="highlight">Drake</span><br>73,96 milhões de ouvintes mensais</p>
+          <a href="https://open.spotify.com/intl-pt/artist/3TVXtAsR1Inumwj472S9r4?si=zp8MmXzQT6GXAiNdiG_X5w" target="_blank" class="profile-link">Perfil do Artista</a>
+        </div>
+        <div class="grid-item">
+          <img src="bad-bunny.jpg" alt="Bad Bunny">
+          <p><span class="highlight">Bad Bunny</span><br>63,5 milhões de ouvintes mensais</p>
+          <a href="https://open.spotify.com/intl-pt/artist/4q3ewBCX7sLwd24euuV69X?si=HUqkBIlOS_qrKoE41RyElQ" target="_blank" class="profile-link">Perfil do Artista</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usuários Ativos Mensais -->
+    <section class="card">
+      <h2>Usuários Ativos Mensais</h2>
+      <ul>
+        <li><span class="highlight">574 milhões</span> de usuários ativos mensais (2024)</li>
+        <li><span class="highlight">243 milhões</span> de assinantes premium</li>
+      </ul>
+      <canvas id="userChart"></canvas>
+    </section>
+
+    <!-- Dispositivos Mais Usados -->
+    <section class="card">
+      <h2>Dispositivos Mais Usados</h2>
+      <ul>
+        <li><span class="highlight">Smartphones</span>: (5 bilhões de aparelhos)</li>
+        <li><span class="highlight">Desktop/Web</span>: (1 bilhão de dispositivos)</li>
+        <li><span class="highlight">Smart Speakers</span>: (400 milhões de dispositivos)</li>
+        <li><span class="highlight">Outros</span>: (150 milhões de dispositivos)</li>
+      </ul>
+      <canvas id="deviceChart"></canvas>
+    </section>
+
+    <!-- Principais Países -->
+    <section class="card">
+      <h2>Principais Países no Spotify</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <img src="eua.png" alt="Estados Unidos">
+          <p><span class="highlight">Estados Unidos</span></p>
+        </div>
+        <div class="grid-item">
+          <img src="brasil.jpg" alt="Brasil">
+          <p><span class="highlight">Brasil</span></p>
+        </div>
+        <div class="grid-item">
+          <img src="mexico.png" alt="México">
+          <p><span class="highlight">México</span></p>
+        </div>
+        <div class="grid-item">
+          <img src="reini unido.png" alt="Reino Unido">
+          <p><span class="highlight">Reino Unido</span></p>
+        </div>
+        <div class="grid-item">
+          <img src="alemanha (1).png" alt="Alemanha">
+          <p><span class="highlight">Alemanha</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Músicas Mais Ouvidas -->
+    <section class="card">
+      <h2>Músicas Mais Ouvidas por Ano (2020–2024)</h2>
+      <ul>
+        <li><span class="highlight">2020:</span> Blinding Lights - The Weeknd</li>
+        <li><span class="highlight">2021:</span> drivers license - Olivia Rodrigo</li>
+        <li><span class="highlight">2022:</span> As It Was - Harry Styles</li>
+        <li><span class="highlight">2023:</span> Flowers - Miley Cyrus</li>
+        <li><span class="highlight">2024:</span> Beautiful Things - Benson Boone</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Spotify.</p>
+  </footer>
+
+  <script>
+    // Gráfico de Barras - Usuários Ativos Mensais
+    const userChartCtx = document.getElementById('userChart').getContext('2d');
+    new Chart(userChartCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Usuários Ativos', 'Assinantes Premium'],
+        datasets: [{
+          label: 'Usuários (milhões)',
+          data: [574, 243],
+          backgroundColor: ['#1DB954', '#1D8CD6'],
+          borderColor: ['#1DB954', '#1D8CD6'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: true }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          },
+          x: {
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+          }
+        }
+      }
+    });
+
+    // Gráfico de Pizza - Dispositivos Usados
+    const deviceChartCtx = document.getElementById('deviceChart').getContext('2d');
+    new Chart(deviceChartCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Smartphones', 'Desktop/Web', 'Smart Speakers', 'Outros'],
+        datasets: [{
+          data: [72, 18, 7, 3],
+          backgroundColor: ['#1DB954', '#1D8CD6', '#FFD700', '#FF4500'],
+          borderColor: 'rgba(0, 0, 0, 0.1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: { color: 'white' }
+          },
+          tooltip: { enabled: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
